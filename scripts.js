@@ -5,6 +5,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const entries = new FormData(event.target);
   try{
+    console.clear()
     const { dividend, divider } = Object.fromEntries(entries);
 
     //Checks whether the inputs are valid, if not it throws an error
@@ -18,7 +19,10 @@ form.addEventListener("submit", (event) => {
 
   }catch(err){
     //Displays error message if divider = 0
-    if(err === "Division not performed. Invalid number provided. Try again") console.trace("This line got called from")
+    console.error(err)
+    if(err === "Division not performed. Invalid number provided. Try again"){
+      console.trace("This line got called from")
+    } 
 
     //Displays error message if input is non-numerical
     if(err === "Something critical went wrong. Please reload the page"){
